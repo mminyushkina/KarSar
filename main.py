@@ -36,7 +36,7 @@ def load_answers() -> list[str]:
     """Load answers from file, split by '===' separator."""
     if not os.path.exists(ANSWERS_FILE):
         logging.warning(f"{ANSWERS_FILE} not found, using fallback")
-        return ["Привет! Я пока не знаю, что ответить."]
+        return ["Привет! Помолчим."]
 
     with open(ANSWERS_FILE, "r", encoding="utf-8") as f:
         content = f.read()
@@ -55,7 +55,7 @@ answers: list[str] = []
 @dp.message(Command("start"))
 async def cmd_start(message: Message) -> None:
     await message.answer(
-        "Привет! Я бот-цитатник. Напиши мне что-нибудь, и я отвечу случайной фразой."
+        "Привет! Ну, рассказывай..."
     )
 
 
